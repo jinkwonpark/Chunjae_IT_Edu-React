@@ -2,26 +2,26 @@ import React, { useState } from 'react'
 
 const Test2 = () => {
   const [ form, setForm ] = useState({
-    username:'',
+    username : '',
     message : ''
   });  
-  const { username, message } = form;  //폼 객체 분리
-  const onChange = (e) => { //onChange 이벤트 기술
+  const { username, message } = form;  // 폼 객체 분리
+  const onChange = (e) => { // onChange 이벤트 기술
     setTimeout(() => console.log(e), 500);
-    const nextForm = {      //폼 객체
-        ...form,
+    const nextForm = {      // 폼 객체
+        ...form,  // form 요소 추가 시 앞에 '...' 붙이기
         [e.target.name] : e.target.value
     };
     setForm(nextForm);
   };
-  const onClick = () => {   //onClick 이벤트 기술
+  const onClick = () => {   // onClick 이벤트 기술
     alert(username+" and "+message);
     setForm({
         username : '',
         message : ''
     });
   };
-  const onKeyPress = (e) => {//Enter Key 입력시 onClick 이벤트 발생 -> 이벤트 트리거
+  const onKeyPress = (e) => { // Enter Key 입력시 onClick 이벤트 발생 -> 이벤트 트리거
     if(e.key === 'Enter') {
         onClick();
     }
